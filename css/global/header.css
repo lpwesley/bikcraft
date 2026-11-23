@@ -3,6 +3,7 @@
 }
 
 .header {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
@@ -12,56 +13,211 @@
   padding-bottom: 20px;
 }
 
+/* Menu sem JavaScript (fallback): links em botões lado a lado */
 .header-menu {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 12px;
 }
 
 .header-menu a {
   display: inline-block;
-  padding: 16px 0px;
+  position: relative;
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  background: var(--cor-11);
+  border-radius: 4px;
+}
+
+.header-menu a:hover,
+.header-menu a[aria-current="page"] {
+  background-color: var(--cor-10);
+}
+
+/* Botão hambúrguer: só aparece quando o JavaScript está ativo */
+.header-botao {
+  display: none;
+}
+
+.js .header-botao {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0 12px 12px;
+  border: none;
+  background: none;
+  color: var(--cor-0);
+  font: 400 1rem/1 "Poppins", sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.header-botao-icone,
+.header-botao-icone::before,
+.header-botao-icone::after {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.header-botao-icone {
   position: relative;
 }
 
-.header-menu a:after {
+.header-botao-icone::before,
+.header-botao-icone::after {
   content: "";
-  display: block;
-  height: 2px;
-  width: 0px;
-  background: var(--cor-0);
-  margin-top: 4px;
-  transition: 0.3s;
   position: absolute;
+  left: 0;
 }
 
-.header-menu a:hover:after {
-  width: 100%;
+.header-botao-icone::before {
+  top: -7px;
 }
 
-@media (max-width: 800px) {
+.header-botao-icone::after {
+  top: 7px;
+}
+
+.header-botao[aria-expanded="true"] {
+  color: var(--cor-p1);
+}
+
+.header-botao[aria-expanded="true"] .header-botao-icone {
+  background-color: transparent;
+}
+
+.header-botao[aria-expanded="true"] .header-botao-icone::before {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.header-botao[aria-expanded="true"] .header-botao-icone::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Menu com JavaScript: painel que abre abaixo do header */
+.js .header-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  flex-direction: column;
+  gap: 0;
+  padding: 0 20px 20px;
+  background: var(--cor-12);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.js .header-menu.ativo {
+  display: flex;
+  animation: menu-abrir 0.2s ease-out;
+}
+
+.js .header-menu a {
+  display: block;
+  padding: 16px 0;
+  font-size: 1.125rem;
+  background: none;
+  border-radius: 0;
+  border-bottom: 1px solid var(--cor-10);
+}
+
+.js .header-menu li:last-child a {
+  border-bottom: none;
+}
+
+.js .header-menu a:hover,
+.js .header-menu a[aria-current="page"] {
+  color: var(--cor-p1);
+  background: none;
+}
+
+@keyframes menu-abrir {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .header-menu.ativo {
+    animation: none;
+  }
+  .header-botao-icone,
+  .header-botao-icone::before,
+  .header-botao-icone::after {
+    transition: none;
+  }
+}
+
+@media (min-width: 600px) {
   .header-menu {
     gap: 20px;
   }
   .header-menu a {
-    background: var(--cor-11);
     padding: 12px 16px;
-    border-radius: 4px;
-  }
-  .header-menu a:hover {
-    background-color: var(--cor-10);
-  }
-  .header a:after {
-    display: none;
+    font-size: 1.125rem;
   }
 }
 
-@media (max-width: 600px) {
-  .header-menu {
-    gap: 12px;
+/* Desktop: menu horizontal com sublinhado animado */
+@media (min-width: 800px) {
+  .js .header-botao {
+    display: none;
   }
-  .header-menu a {
-    padding: 8px 12px;
-    font-size: 14px;
+
+  .header-menu,
+  .js .header-menu {
+    display: flex;
+    position: static;
+    flex-direction: row;
+    gap: 40px;
+    padding: 0;
+    background: none;
+    box-shadow: none;
+    animation: none;
+  }
+
+  .header-menu a,
+  .js .header-menu a {
+    display: inline-block;
+    padding: 16px 0px;
+    font-size: 1.125rem;
+    background: none;
+    border-radius: 0;
+    border-bottom: none;
+  }
+
+  .header-menu a:hover,
+  .header-menu a[aria-current="page"],
+  .js .header-menu a:hover,
+  .js .header-menu a[aria-current="page"] {
+    color: inherit;
+    background: none;
+  }
+
+  .header-menu a::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0px;
+    background: var(--cor-0);
+    margin-top: 4px;
+    transition: 0.3s;
+    position: absolute;
+  }
+
+  .header-menu a:hover::after,
+  .header-menu a[aria-current="page"]::after {
+    width: 100%;
+  }
+
+  .header-menu a[aria-current="page"]::after {
+    background: var(--cor-p1);
   }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8">
@@ -8,6 +8,8 @@
   <title>Bikcraft - Bicicletas Elétricas</title>
   <meta name="description" content="Bicicletas elétricas de alta precisão e qualidade, feitas sob medida para o cliente. Explore o mundo na sua velocidade com a Bikcraft.">
 
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="./js/menu.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap">
@@ -16,14 +18,20 @@
 </head>
 
 <body>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
   <header class="header-bg">
     <div class="header container">
       <a href="./">
-        <img src="./img/bikcraft.svg" width="136" height="32" alt="Bikcraft">
+        <img src="./img/bikcraft.svg" width="136" height="32" alt="Bikcraft - página inicial">
       </a>
 
-      <nav aria-label="primaria">
-        <ul class="header-menu font-1-m cor-0">
+      <nav class="header-nav" aria-label="Principal">
+        <button class="header-botao" type="button" data-menu="botao" aria-expanded="false" aria-controls="menu-principal">
+          <span class="header-botao-icone" aria-hidden="true"></span>
+          Menu
+        </button>
+        <ul class="header-menu font-1-m cor-0" id="menu-principal">
           <li><a href="./bicicletas.html">Bicicletas</a></li>
           <li><a href="./seguros.html">Seguros</a></li>
           <li><a href="./contato.html">Contato</a></li>
@@ -32,7 +40,9 @@
     </div>
   </header>
 
-  <main class="introducao-bg">
+  <main id="conteudo">
+
+  <div class="introducao-bg">
     <div class="introducao container">
       <div class="introducao-conteudo">
         <h1 class="font-1-xxl cor-0">Bicicletas feitas sob medida<span class="cor-p1">.</span></h1>
@@ -44,9 +54,9 @@
         <img src="./img/fotos/introducao.jpg" width="1280" height="1600" alt="Bicicleta elétrica preta.">
       </picture>
     </div>
-  </main>
+  </div>
 
-  <article class="bicicletas-lista">
+  <section class="bicicletas-lista">
     <h2 class="container font-1-xxl">escolha a sua<span class="cor-p1">.</span></h2>
 
     <ul>
@@ -72,9 +82,9 @@
         </a>
       </li>
     </ul>
-  </article>
+  </section>
 
-  <article class="tecnologia-bg">
+  <section class="tecnologia-bg">
     <div class="tecnologia container">
       <div class="tecnologia-conteudo">
         <span class="font-2-l-b cor-5">Tecnologia Avançada</span>
@@ -98,7 +108,7 @@
         <img src="./img/fotos/tecnologia.jpg" width="1200" height="1920" alt="">
       </div>
     </div>
-  </article>
+  </section>
 
   <section class="parceiros" aria-label="Nossos Parceiros">
     <h2 class="container font-1-xxl">nossos parceiros<span class="cor-p1">.</span></h2>
@@ -127,10 +137,10 @@
     </div>
   </section>
 
-  <article class="seguros-bg">
+  <section class="seguros-bg">
     <div class="seguros container">
       <h2 class="font-1-xxl cor-0">seguros<span class="cor-p1">.</span></h2>
-      <div class="seguros-item">
+      <article class="seguros-item">
         <h3 class="font-1-xl cor-6">PRATA</h3>
         <span class="font-1-xl cor-0">R$ 199 <span class="font-1-xs cor-6">mensal</span></span>
         <ul class="font-2-m cor-0">
@@ -140,9 +150,9 @@
           <li>Cobertura estadual</li>
         </ul>
         <a class="botao secundario" href="./orcamento.html">Inscreva-se</a>
-      </div>
+      </article>
 
-      <div class="seguros-item">
+      <article class="seguros-item">
         <h3 class="font-1-xl cor-p1">OURO</h3>
         <span class="font-1-xl cor-0">R$ 299 <span class="font-1-xs cor-6">mensal</span></span>
         <ul class="font-2-m cor-0">
@@ -154,21 +164,25 @@
           <li>Acesso ao Clube Bikcraft</li>
         </ul>
         <a class="botao" href="./orcamento.html">Inscreva-se</a>
-      </div>
+      </article>
     </div>
-  </article>
+  </section>
+  </main>
+
 
   <footer class="footer-bg">
     <div class="footer container">
       <img src="./img/bikcraft.svg" width="136" height="32" alt="Bikcraft">
       <div class="footer-contato">
-        <h3 class="font-2-l-b cor-0">Contato</h3>
-        <ul class="font-2-m cor-5">
-          <li><a href="tel:+552199999999">+55 21 9999-9999</a></li>
-          <li><a href="mailto:contato@bikcraft.com">contato@bikcraft.com</a></li>
-          <li>Rua Ali Perto, 42 - Botafogo</li>
-          <li>Rio de Janeiro - RJ</li>
-        </ul>
+        <h2 class="font-2-l-b cor-0">Contato</h2>
+        <address>
+          <ul class="font-2-m cor-5">
+            <li><a href="tel:+552199999999">+55 21 9999-9999</a></li>
+            <li><a href="mailto:contato@bikcraft.com">contato@bikcraft.com</a></li>
+            <li>Rua Ali Perto, 42 - Botafogo</li>
+            <li>Rio de Janeiro - RJ</li>
+          </ul>
+        </address>
         <div class="footer-redes">
           <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
             <img src="./img/redes/instagram.svg" width="32" height="32" alt="Instagram">
@@ -182,8 +196,8 @@
         </div>
       </div>
       <div class="footer-informacoes">
-        <h3 class="font-2-l-b cor-0">Informações</h3>
-        <nav>
+        <h2 class="font-2-l-b cor-0" id="rodape-informacoes">Informações</h2>
+        <nav aria-labelledby="rodape-informacoes">
           <ul class="font-1-m cor-5">
             <li><a href="./bicicletas.html">Bicicletas</a></li>
             <li><a href="./seguros.html">Seguros</a></li>

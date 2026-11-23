@@ -44,17 +44,19 @@ bikcraft/
 │   ├── global/          # reset, header e footer
 │   ├── utilidades/      # cores, tipografia, componentes e formulário
 │   └── home/ bicicletas/ bicicleta/ seguros/ contato/ orcamento/ termos/
+├── js/
+│   └── menu.js          # menu hambúrguer
 └── img/                 # fotos, ícones, logos de parceiros e redes sociais
 ```
 
 ## Framework
 
-**Nenhum framework: HTML5 e CSS3 puros**, sem JavaScript e sem etapa de build.
+**Nenhum framework: HTML5, CSS3 e um JavaScript mínimo**, sem etapa de build. O único script (`js/menu.js`, cerca de 40 linhas) controla o menu hambúrguer. Sem JavaScript, o menu continua aparecendo aberto.
 
 Por que essa escolha:
 
 - **O site é estático e pequeno.** São 9 páginas de conteúdo, sem login, carrinho ou dados que mudam a cada acesso. Um framework como React ou Vue traria peso e complexidade sem resolver nenhum problema real aqui.
-- **Desempenho.** Sem JavaScript para baixar e executar, as páginas abrem rápido mesmo em conexões móveis, o que importa para o público que pesquisa pelo celular.
+- **Desempenho.** Quase não há JavaScript para baixar e executar, então as páginas abrem rápido mesmo em conexões móveis, o que importa para o público que pesquisa pelo celular.
 - **SEO e acessibilidade.** O HTML chega pronto ao navegador e aos buscadores, usando tags semânticas (`header`, `nav`, `main`, `article`, `details`).
 - **Hospedagem simples e gratuita.** Os arquivos podem ir direto para GitHub Pages, Netlify ou Vercel.
 - **Fácil de manter e de aprender.** Qualquer pessoa que conheça HTML e CSS consegue editar o projeto, sem instalar dependências.
@@ -63,8 +65,10 @@ Recursos de CSS usados no lugar de um framework de estilo:
 
 - **Variáveis CSS** (`--cor-*`) para a paleta de cores.
 - **Classes utilitárias** de tipografia (`font-1-*`, `font-2-*`) e de cor (`cor-*`).
-- **CSS Grid e Flexbox** para o layout, com pontos de quebra em 1200, 800, 600 e 400px.
+- **Mobile first:** o CSS base é o do celular, e os pontos de quebra (`min-width` em 400, 600, 800 e 1200px) acrescentam o layout de telas maiores.
+- **CSS Grid e Flexbox** para o layout.
 - Interações sem JavaScript: o formulário de orçamento usa `:checked` e o FAQ usa `<details>`.
+- **Acessibilidade:** link "Pular para o conteúdo", menu com `aria-expanded` que fecha com Esc, página atual marcada com `aria-current` e títulos em ordem (h1 → h2 → h3).
 
 Fontes: Poppins, Roboto e Merriweather, carregadas do Google Fonts.
 

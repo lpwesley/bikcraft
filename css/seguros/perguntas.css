@@ -1,10 +1,10 @@
 .perguntas {
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .perguntas h2 {
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 
 .perguntas details {
@@ -66,12 +66,12 @@
   text-decoration: underline;
 }
 
-@media (max-width: 800px) {
+@media (min-width: 800px) {
   .perguntas {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 120px;
+    padding-bottom: 120px;
   }
   .perguntas h2 {
-    margin-bottom: 40px;
+    margin-bottom: 60px;
   }
 }
