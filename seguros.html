@@ -10,6 +10,8 @@
 
   <script>document.documentElement.classList.add("js");</script>
   <script src="./js/menu.js" defer></script>
+  <script src="./js/plugins/simple-anime.js" defer></script>
+  <script src="./js/script.js" defer></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap">
@@ -53,7 +55,7 @@
     <div class="seguros container">
       <h2 class="sr-only">Planos de seguro</h2>
 
-      <article class="seguros-item">
+      <article class="seguros-item fadeInLeft" data-anime="200">
         <h3 class="font-1-xl cor-6">PRATA</h3>
         <span class="font-1-xl cor-0">R$ 199 <span class="font-1-xs cor-6">mensal</span></span>
         <ul class="font-2-m cor-0">
@@ -62,10 +64,10 @@
           <li>Suporte 08h às 18h</li>
           <li>Cobertura estadual</li>
         </ul>
-        <a class="botao secundario" href="./orcamento.html">Inscreva-se</a>
+        <a class="botao secundario" href="./orcamento.html?tipo=seguro&amp;produto=prata">Inscreva-se</a>
       </article>
 
-      <article class="seguros-item">
+      <article class="seguros-item fadeInRight" data-anime="400">
         <h3 class="font-1-xl cor-p1">OURO</h3>
         <span class="font-1-xl cor-0">R$ 299 <span class="font-1-xs cor-6">mensal</span></span>
         <ul class="font-2-m cor-0">
@@ -76,7 +78,7 @@
           <li>Desconto em parceiros</li>
           <li>Acesso ao Clube Bikcraft</li>
         </ul>
-        <a class="botao" href="./orcamento.html">Inscreva-se</a>
+        <a class="botao" href="./orcamento.html?tipo=seguro&amp;produto=ouro">Inscreva-se</a>
       </article>
     </div>
   </div>
