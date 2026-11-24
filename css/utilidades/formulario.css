@@ -41,3 +41,23 @@
     grid-column: span 2;
   }
 }
+
+/* Mensagem que substitui o formulário depois do envio (js/formulario.js) */
+.form-resposta {
+  grid-column: 1 / -1;
+  padding: 1rem;
+  border-radius: 4px;
+  background: #f7f7f7;
+}
+
+.form-sucesso {
+  color: #317a00;
+}
+
+.form-erro {
+  color: #e00000;
+}
+
+.form-resposta a {
+  text-decoration: underline;
+}

@@ -116,3 +116,10 @@
     grid-row: auto;
   }
 }
+
+/* Galeria: no desktop, clicar numa miniatura leva ela para o destaque (js/script.js) */
+@media (min-width: 800px) {
+  .js .bicicleta-imagens img:not(:first-child) {
+    cursor: pointer;
+  }
+}
